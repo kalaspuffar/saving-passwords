@@ -1,0 +1,7 @@
+{
+  "name": "save-passwords",
+  "short_name": "save-passwords",
+  "description": "Testing out the save password function of web browsers.",
+  "start_url": "/",
+  "display": "standalone"
+}

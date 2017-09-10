@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>save-passwords</title>
+    <meta name="description" content="Testing out the save password function of web browsers.">
+
+    <!-- See https://goo.gl/OOhYW5 -->
+    <link rel="manifest" href="/manifest.json">
+
+    <script src="/bower_components/webcomponentsjs/webcomponents-loader.js"></script>
+
+    <link rel="import" href="/src/save-passwords-app/save-passwords-redirect.html">
+    <link rel="import" href="/src/save-passwords-app/save-passwords-app.html">
+  </head>
+  <body>
+    <save-passwords-app></save-passwords-app>
+    <save-passwords-redirect></save-passwords-redirect>
+
+    <form id="loginForm" method="get" action="login.html" style="display:none">
+      <input id="username" type="text" />
+      <input id="password" type="password" />
+    </form>
+
+    <script type="text/javascript">
+      setTimeout(function() {
+        window.addEventListener('login-event', function(e) {
+          document.getElementById('username').value = e.detail.username;
+          document.getElementById('password').value = e.detail.password;
+          document.getElementById('loginForm').submit();
+        });
+      },0)
+    </script>
+  </body>
+</html>
